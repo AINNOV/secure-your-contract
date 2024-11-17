@@ -1,0 +1,26 @@
+base_model: "meta-llama/Llama-2-7b-chat-hf"
+
+eval_contract:
+  - ../data/eval_contract1.txt
+  - ../data/eval_contract2.txt
+  
+dataset:
+  train: "JJuny/llama2_SYC_1107"
+  eval: "JJuny/llama2_contract_eval"
+
+training:
+  output_dir: "../log/SYC_1111_training"
+  batch_size: 4
+  batch_size_eval: 2
+  learning_rate: 1e-4
+  epochs: 35
+  logging_steps: 30
+  save_steps: 500
+  fp16: true
+  save_model_path: "../pretrained/SYC_1111"
+
+lora:
+  r: 16
+  alpha: 32
+  dropout: 0.1
+
