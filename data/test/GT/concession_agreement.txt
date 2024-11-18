@@ -1,0 +1,38 @@
+1) Risky Terms:
+
+	•	“Termination without cause”
+	•	“Unilateral decision-making”
+
+2) Weakly Risky Terms:
+
+	•	“Best efforts”
+	•	“Subject to availability”
+
+1) Risky Terms Reasons:
+
+	•	“Termination without cause”
+This clause allows one party to terminate the agreement without providing a reason. It creates significant instability for the other party, as they cannot anticipate or mitigate termination risks, leading to potential financial and operational disruptions.
+	•	“Unilateral decision-making”
+This term gives one party sole authority to make decisions, which could result in unfair or biased outcomes. It also undermines the collaborative nature of the agreement, potentially alienating the other party and leading to disputes.
+
+2) Weakly Risky Terms Reasons:
+
+	•	“Best efforts”
+While this term implies diligence, it lacks measurable benchmarks. The subjective interpretation of “best” may lead to disagreements regarding whether obligations were fulfilled, potentially causing disputes over performance.
+	•	“Subject to availability”
+This phrase creates ambiguity, as it does not define the scope or conditions of availability. This could lead to inconsistencies in service delivery or unmet expectations, harming trust between parties.
+Suggested Solutions:
+
+1. Risky Terms Suggested Changes:
+
+	•	“Termination without cause”
+Revise to: “Termination is permitted only with a 30-day notice period and upon mutual agreement, ensuring reasonable grounds are provided for such termination.”
+	•	“Unilateral decision-making”
+Revise to: “Decisions must be made collaboratively, with major changes requiring mutual consent to ensure fairness and balanced interests.”
+
+2. Weakly Risky Terms Suggested Changes:
+
+	•	“Best efforts”
+Revise to: “Agency will exert commercially reasonable efforts, meeting the following benchmarks: [specify concrete metrics or deliverables].”
+	•	“Subject to availability”
+Revise to: “Subject to prior commitments, services will be provided as outlined in the agreed schedule, with advance notice given for any changes in availability.”
