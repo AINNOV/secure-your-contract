@@ -1,5 +1,6 @@
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 from omegaconf import OmegaConf
+import argparse
 import torch
 from peft import get_peft_model, PeftModel
 from _utils import prompt_with_template, set_all_seeds
@@ -62,5 +63,9 @@ def main(config):
     #     result.write(f"\ninference time : {(inference_time * 1e-3):.2f} sec")
 
 if __name__ == "__main__":
-    config = OmegaConf.load("../configs/inference.yml")
+    parser = argparse.ArgumentParser(description="A simple argparse example")
+    parser.add_argument('--inference_config', type=str, help="Your name", defualt = "../configs/inference.yml")
+
+    args = parser.parse_args()
+    config = OmegaConf.load(args.inference_config)
     main(config)

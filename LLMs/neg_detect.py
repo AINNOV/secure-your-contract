@@ -23,10 +23,9 @@ nltk.download('words')
 nltk.download('averaged_perceptron_tagger_eng')
 nltk.download('maxent_ne_chunker_tab')
 
-risky_terms = ["compulsory", "mandatory", "mutual agreement", "termination", "indefinite", "confidentiality", "probation", "assignment", "discretion", "voidable", "irrevocable"]
-weakly_risky_terms = ["reasonable", "in good faith", "best efforts", "at the discretion of", "as determination by", "reasonable notice", "subject to approval", "customary", "time is of the essence", "upon mutual consent", "for convenience", "unless otherwise agreed"]
+risky_terms = ["compulsory", "mandatory", "mutual agreement", "termination", "indefinite", "confidentiality", "probation", "assignment", "discretion", "voidable", "irrevocable"] + ["reasonable", "in good faith", "best efforts", "at the discretion of", "as determination by", "reasonable notice", "subject to approval", "customary", "time is of the essence", "upon mutual consent", "for convenience", "unless otherwise agreed"]
 
-risky_terms = risky_terms + weakly_risky_terms
+risky_terms
 
 # 1. Regex based
 def regex_search(contract_text):
