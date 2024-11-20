@@ -1,5 +1,5 @@
 base_model: "meta-llama/Llama-2-7b-chat-hf"
-
+hf_token: "../../hf_token.txt"
 eval_contract:
   - ../data/evaluation_contract1.txt
   - ../data/evaluation_contract2.txt

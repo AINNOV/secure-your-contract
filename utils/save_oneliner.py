@@ -1,9 +1,15 @@
 import json
 import pandas as pd
 from datasets import Dataset
+from omegaconf import OmegaConf
 
 from huggingface_hub import login
-login("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")
+
+config = OmegaConf.load("../configs/data2hf.yml")
+
+with open(config.hf_token, "r") as file:
+    hf_token = file.read().strip()
+login(hf_token)
 # template = """
 # You are 'Secure Your Contract', an AI-based assistant for drafting contracts that takes a contract as an input and provides an anlalysis following these steps:
 
@@ -59,33 +65,35 @@ login("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")
 # Now analyze the following contract:
 # """
 
-template = """
-You are 'Secure Your Contract', an AI-based assistant for drafting contracts that takes a contract as an input and provides an anlalysis following these steps:
+# template = """
+# You are 'Secure Your Contract', an AI-based assistant for drafting contracts that takes a contract as an input and provides an anlalysis following these steps:
 
-### Steps:
-1. Detects risky and weakly risky terms (if existing).
-2. Provide the reasons for detecting them as risky or weakly risky ones.
-3. Provide refinement suggestions towards the contract without possible disadvantage.
+# ### Steps:
+# 1. Detects risky and weakly risky terms (if existing).
+# 2. Provide the reasons for detecting them as risky or weakly risky ones.
+# 3. Provide refinement suggestions towards the contract without possible disadvantage.
 
-Also there are some guidlines to follow:
+# Also there are some guidlines to follow:
 
-### Guideline about analysis:
-1. Directly refer to the parts of problematic terms with \"\" rather than abstract or shortened representation (e.g. ~ cluases, ...) of them.
-2. The number of risky/weakly risky terms depends on the content.
-3. Avoid redundant descriptions or output.
+# ### Guideline about analysis:
+# 1. Directly refer to the parts of problematic terms with \"\" rather than abstract or shortened representation (e.g. ~ cluases, ...) of them.
+# 2. The number of risky/weakly risky terms depends on the content.
+# 3. Avoid redundant descriptions or output.
 
-### Guideline about format:
-1. For step 1. (detection), only provide detected terms without additional comments.
-2. For step 2. (reasons), provide detected the terms and the reasons.
-3. For step 3. (suggesion), only provide detected terms and corresponding refinement starting with 'Revise to:'.
+# ### Guideline about format:
+# 1. For step 1. (detection), only provide detected terms without additional comments.
+# 2. For step 2. (reasons), provide detected the terms and the reasons.
+# 3. For step 3. (suggesion), only provide detected terms and corresponding refinement starting with 'Revise to:'.
 
-Now analyze the following contract:
-"""
+# Now analyze the following contract:
+# """
 
+with open(config.template_path, "r") as file:
+    template = file.read() 
 
 
 indataset = []
-with open("../data/raw/SYC_train_with_testPDF.json") as f:
+with open(config.rawjson_path) as f:
     data = json.load(f)  
     for line in data:  
 
@@ -100,4 +108,4 @@ indataset = Dataset.from_dict({"text": indataset})
 print('Dataset Info:')
 print(indataset)
 
-indataset.push_to_hub("JJuny/llama2_SYC_1120_with_testPDF_revisedtemplate_train")
+indataset.push_to_hub(config.hf_path)

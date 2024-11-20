@@ -6,20 +6,16 @@ from trl import SFTTrainer
 from peft import LoraConfig, get_peft_model
 from omegaconf import OmegaConf
 from _utils import prompt_with_template
-
 import mlflow
 import mlflow.pytorch
 from transformers import TrainerCallback
 import sys, os
 # from rouge_score import rouge_scorer
 from nltk.translate.bleu_score import corpus_bleu
-
 from nltk.translate import meteor_score
-
 from torchmetrics.text import TranslationEditRate
-
 from huggingface_hub import login
-login("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")
+
 
 import nltk
 nltk.download('wordnet')
@@ -126,6 +122,9 @@ class InferenceCallback(TrainerCallback):
 def main(config_path):
     # Load the configuration file
     config = OmegaConf.load(config_path)
+    with open(config.hf_token, "r") as file:
+        hf_token = file.read().strip()
+    login(hf_token)
     
     # Initialize model, tokenizer, and device
     bnb_config = BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_quant_type="nf4", bnb_4bit_use_double_quant=True)
@@ -171,7 +170,7 @@ def main(config_path):
         eval_dataset=eval_dataset["train"],
         dataset_text_field="text",
         callbacks=[InferenceCallback(tokenizer, model, messages, config.eval_GT, torch.device("cuda" if torch.cuda.is_available() else "cpu")), # originally messages instead of eval_dataset["train"]
-                    MLflowLoggingCallback(run_name="SYC_1120_evalmetrics_pdfs_revisedtemplate")]
+                    MLflowLoggingCallback(run_name=config.training.save_model_path)]
     )
 
     trainer.train()

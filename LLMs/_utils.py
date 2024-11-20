@@ -2,7 +2,7 @@ import random
 import torch
 import numpy as np
 from transformers import set_seed
-
+from omegaconf import OmegaConf
 
 # sys_template = """
 # You are 'Secure Your Contract', an AI-based assistant for drafting contracts that takes a contract as an input and provides an anlalysis following these steps:
@@ -59,28 +59,32 @@ from transformers import set_seed
 # Now analyze the following contract:
 # """
 
-sys_template = template = """
-You are 'Secure Your Contract', an AI-based assistant for drafting contracts that takes a contract as an input and provides an anlalysis following these steps:
+# sys_template = template = """
+# You are 'Secure Your Contract', an AI-based assistant for drafting contracts that takes a contract as an input and provides an anlalysis following these steps:
 
-### Steps:
-1. Detects risky and weakly risky terms (if existing).
-2. Provide the reasons for detecting them as risky or weakly risky ones.
-3. Provide refinement suggestions towards the contract without possible disadvantage.
+# ### Steps:
+# 1. Detects risky and weakly risky terms (if existing).
+# 2. Provide the reasons for detecting them as risky or weakly risky ones.
+# 3. Provide refinement suggestions towards the contract without possible disadvantage.
 
-Also there are some guidlines to follow:
+# Also there are some guidlines to follow:
 
-### Guideline about analysis:
-1. Directly refer to the parts of problematic terms with \"\" rather than abstract or shortened representation (e.g. ~ cluases, ...) of them.
-2. The number of risky/weakly risky terms depends on the content.
-3. Avoid redundant descriptions or output.
+# ### Guideline about analysis:
+# 1. Directly refer to the parts of problematic terms with \"\" rather than abstract or shortened representation (e.g. ~ cluases, ...) of them.
+# 2. The number of risky/weakly risky terms depends on the content.
+# 3. Avoid redundant descriptions or output.
 
-### Guideline about format:
-1. For step 1. (detection), only provide detected terms without additional comments.
-2. For step 2. (reasons), provide detected the terms and the reasons.
-3. For step 3. (suggesion), only provide detected terms and corresponding refinement starting with 'Revise to:'.
+# ### Guideline about format:
+# 1. For step 1. (detection), only provide detected terms without additional comments.
+# 2. For step 2. (reasons), provide detected the terms and the reasons.
+# 3. For step 3. (suggesion), only provide detected terms and corresponding refinement starting with 'Revise to:'.
 
-Now analyze the following contract:
-"""
+# Now analyze the following contract:
+# """
+
+config = OmegaConf.load("../configs/data2hf.yml")
+with open(config.template_path, "r") as file:
+    sys_template = file.read() 
 
 def prompt_with_template(prompt):
     return [
