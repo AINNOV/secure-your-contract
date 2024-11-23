@@ -1,3 +1,4 @@
+# This file illustrates how apply_chat_template works. #
 
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 import torch
@@ -5,7 +6,7 @@ from peft import get_peft_model, PeftModel
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 fine_tuned_model_path = "meta-llama/Llama-2-7b-chat-hf" 
-l
+
 quantization_4bit = BitsAndBytesConfig(load_in_4bit=True)
 model_4bit = AutoModelForCausalLM.from_pretrained(
     fine_tuned_model_path,  
@@ -15,6 +16,7 @@ model_4bit = AutoModelForCausalLM.from_pretrained(
 )
 
 tokenizer = AutoTokenizer.from_pretrained(fine_tuned_model_path)  
+
 message = [
     {
         "role": "system",

@@ -1,0 +1,30 @@
+1) Risky Terms:
+• “Agency agrees to obtain Client’s written approval and authorization prior to undertaking any action contemplated under this Agreement”
+• “Agency shall not bind Client to any obligation nor make any significant advertising decision without Client’s prior written approval”
+
+2) Weakly Risky Terms:
+• “Requested approvals submitted to Client shall contain detailed cost estimates”
+• “Client is engaging Agency to provide the following specific Advertising Services”
+
+1) Risky Terms Reasons:
+• “Agency agrees to obtain Client’s written approval and authorization prior to undertaking any action contemplated under this Agreement”
+This clause makes the Agency highly dependent on the Client’s approval before moving forward with any tasks, potentially causing delays or inefficiencies. It gives the Client too much power in decision-making, and in some cases, could stall the project if approval is delayed or not given.
+• “Agency shall not bind Client to any obligation nor make any significant advertising decision without Client’s prior written approval”
+This term gives the Client full control over significant advertising decisions, which could lead to indecision or slow execution of the advertising strategy. It’s risky because the Agency may find itself unable to act decisively when opportunities or deadlines arise, impacting the efficiency and flexibility of the campaign.
+
+2) Weakly Risky Terms Reasons:
+• “Requested approvals submitted to Client shall contain detailed cost estimates”
+While it is standard practice to provide cost estimates, the term “detailed” is subjective and could be interpreted differently by each party. This lack of clear definition may lead to disputes over what is considered a “detailed” estimate and may cause delays in obtaining the Client’s approval.
+• “Client is engaging Agency to provide the following specific Advertising Services”
+This clause is blank in the current contract, but it’s important for this section to clearly define what services will be provided. Ambiguity here could lead to misunderstandings about the scope of work, resulting in either over-delivery (and hence potential disputes over payment) or under-delivery (and client dissatisfaction).
+
+Suggested Solutions:
+1.	Risky Terms Suggested Changes:
+
+• “Agency agrees to obtain Client’s written approval for major actions, but the Client agrees to provide such approval within a reasonable time frame (e.g., 5 business days) to avoid project delays”
+• “Agency shall only make decisions that are within the scope of previously approved advertising strategies and budget. Any significant changes or new commitments will require Client’s approval, which will not be unreasonably withheld”
+
+2.	Weakly Risky Terms Suggested Changes:
+
+• “Requested approvals submitted to Client shall contain a detailed cost breakdown, including all estimated expenses, by category (e.g., production, media placement, etc.)”
+• “Client is engaging Agency to provide the following Advertising Services, which are fully defined below, including deliverables and timelines”

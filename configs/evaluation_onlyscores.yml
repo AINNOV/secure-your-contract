@@ -1,0 +1,3 @@
+test_generated_path: ./eval_output/gemini
+test_gt_path: ./data/test/GT
+bert_model: bert-base-nli-mean-tokens

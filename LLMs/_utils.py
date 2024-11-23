@@ -82,18 +82,39 @@ from omegaconf import OmegaConf
 # Now analyze the following contract:
 # """
 
+
+import nltk
+from nltk.corpus import stopwords
+nltk.download('stopwords')
+
+
+stop_words = set(stopwords.words('english'))
+def remove_stop_words(text):
+    return ' '.join([word for word in text.split() if word.lower() not in stop_words])
+
+
 config = OmegaConf.load("../configs/data2hf.yml")
 with open(config.template_path, "r") as file:
     sys_template = file.read() 
 
+
+sys_template = remove_stop_words(sys_template)
+
+
 def prompt_with_template(prompt):
+
+    # stopwords removal
+
+    prompt = remove_stop_words(prompt)
+
     return [
     {
         "role": "system",
        #"content": "You are \'Secure Your Contract\' that takes a contract as an input and 1. detects risky and weakly risky terms/phrases (if existing) 2. provide the reasons for them 3. provide refinement suggestion towards the contract without possible disadvantage. Note 1. directly refer to the parts of problematic terms with \"\" rather than abstract representation (e.g. ~ cluases, ...) of them, 2. the number of risky/weakly risky terms depends on the content.",
         "content": f"{sys_template}"
     },
-    {"role": "user", "content": "\n### Input Contract:\n" + prompt + "\n### Risky/Weakly Risky Terms Analysis:\n"},
+    # {"role": "user", "content": "\n### Input Contract:\n" + prompt + "\n### Risky/Weakly Risky Terms Analysis:\n"},
+    {"role": "user", "content": "\n### Input Contract:\n" + prompt},
 ]
 
 def set_all_seeds(seed):

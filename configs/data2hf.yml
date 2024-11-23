@@ -1,4 +1,4 @@
 hf_token: ../../hf_token.txt
-template_path: ../template/template_revised.txt
-rawjson_path: ../data/raw/SYC_train_with_testPDF.json
-hf_path: JJuny/llama2_SYC_1120_with_testPDF_revisedtemplate_train
+template_path: ../template/template_concise.txt
+rawjson_path: ../data/raw/SYC_eval.json
+hf_path: JJuny/llama2_SYC_stopremoved_eval

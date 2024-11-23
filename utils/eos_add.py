@@ -1,5 +1,6 @@
-import json
+# You can use this file if your model has different end token from LLaMa-2 (</s>) #
 
+import json
 
 input_file = ...#
 output_file = ...#

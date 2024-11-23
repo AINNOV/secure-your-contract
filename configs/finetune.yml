@@ -1,4 +1,5 @@
 base_model: "meta-llama/Llama-2-7b-chat-hf"
+bert_sim: bert-base-nli-mean-tokens
 hf_token: "../../hf_token.txt"
 eval_contract:
   - ../data/evaluation_contract1.txt
@@ -8,19 +9,19 @@ eval_GT:
   - ../data/evaluation_GT2.txt
   
 dataset:
-  train: "JJuny/llama2_SYC_1120_with_testPDF_revisedtemplate_train"
-  eval: "JJuny/llama2_SYC_1120_with_testPDF_revisedtemplate_eval"
+  train: ... 
+  eval: ...
 
 training:
-  output_dir: "../log/SYC_1120_evalmetrics_pdfs_revisedtemplate_training"
-  batch_size: 6
+  output_dir: "../log/SYC_log"
+  batch_size: 5
   batch_size_eval: 4
   learning_rate: 1e-4
-  epochs: 30
+  epochs: 40
   logging_steps: 30
   save_steps: 500
   fp16: true
-  save_model_path: "../pretrained/SYC_1120_evalmetrics_pdfs_revisedtemplate"
+  save_model_path: "../pretrained/SYC_stopremoved"
 
 lora:
   r: 16

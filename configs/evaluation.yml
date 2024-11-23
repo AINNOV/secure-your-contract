@@ -1,0 +1,6 @@
+base_model: "meta-llama/Llama-2-7b-chat-hf"
+template_path: ./template/template_concise.txt
+pretrained_path: ./pretrained/SYC_1029_decent
+test_contracts_path: ./data/test/contract
+test_gt_path: ./data/test/GT
+bert_model: bert-base-nli-mean-tokens
