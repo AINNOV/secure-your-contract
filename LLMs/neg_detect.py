@@ -104,7 +104,6 @@ def embedding_search(contract_text):
     
     return {"method": "Embedding Search", "terms_found": list(set(risky_found))}
 
-
 ##  4. Shallow Parsing-based ## 
 def shallow_parsing_search(contract_text):
 
